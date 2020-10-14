@@ -1,0 +1,5 @@
+.DS_Store
+node_modules/*
+!node_modules/vue/dist/vue.min.js
+build
+npm-debug.log

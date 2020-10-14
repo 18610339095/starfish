@@ -1,0 +1,113 @@
+
+
+.tableWrap {
+    /* overflow: auto */
+}
+
+.table {
+    width: 100%;
+    text-align: left;
+    table-layout: fixed;
+    border-collapse: separate;
+    font-size: 12px;
+    border-top: 1px solid #f1f1f1;
+    border: none !important;
+    border-bottom: 1px solid #f1f1f1
+}
+
+.tableWrap.table_scroll {
+    min-width: 1366px;
+    overflow: auto
+}
+
+.table_scroll .table {
+    word-wrap: break-word;
+    table-layout: auto;
+}
+
+.table_scroll .table td {
+    max-width: 300px;
+    white-space: normal
+}
+
+.table.tc {
+    text-align: center
+}
+
+.table.tr {
+    text-align: right
+}
+
+.table.vm td {
+    vertical-align: middle
+}
+
+.table td, .table th {
+    padding: 13px 0px;
+    vertical-align: sub;
+    line-height: 1.4
+}
+
+.table th {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis
+}
+
+.table td {
+    word-wrap: break-word
+}
+ 
+
+.table td.xs, .table th.xs {
+    min-width: 50px
+}
+
+.table.line td, .table.line th {
+    border-left: 1px solid #f1f1f1
+}
+
+.table td.sm, .table th.sm {
+    min-width: 100px
+}
+
+.table td.md, .table th.md {
+    min-width: 200px
+}
+
+.table td.lg, .table th.lg {
+    min-width: 400px
+}
+
+.table.zebra tbody tr:nth-child(2n) {
+    background: #fbfbfb
+}
+
+.table th {
+    color: #999
+}
+
+.table.zebra tbody tr:hover, .table tbody tr:hover {
+    background: #fffae9
+}
+
+.table.zebra tbody td, .table.zebra tbody th, .table tbody td, .table tbody th {
+    border-top: 1px solid #f1f1f1
+}
+
+.table_btns {
+    font-size: 0;
+    text-align: center
+}
+
+.table_btns .table_btn, .table_btns a {
+    display: inline-block;
+    font-size: 12px;
+    padding: 0 6px;
+    text-decoration: none
+}
+
+.table_btns .table_btn:hover, .table_btns a:hover {
+    text-decoration: underline
+}

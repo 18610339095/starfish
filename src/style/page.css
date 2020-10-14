@@ -1,0 +1,98 @@
+
+.page {
+    color: #70757b;
+    font-size: 0
+}
+
+.page.center {
+    text-align: center
+}
+
+.page.right {
+    text-align: right
+}
+
+.page .select {
+    margin: 0 5px;
+    width: 60px
+}
+
+.pageSelNum, .pageTotal {
+    display: inline-block;
+    font-size: 12px;
+    height: 32px;
+    line-height: 32px;
+    vertical-align: top
+}
+
+.pageList, .pageSelNum .select {
+    vertical-align: top
+}
+
+.pageList {
+    font-size: 0;
+    margin-left: 31px
+}
+
+.pageItem, .pageList {
+    display: inline-block
+}
+
+.pageItem {
+    margin-left: -1px
+}
+
+.pageLink {
+    display: block;
+    font-size: 12px;
+    padding: 0 10px;
+    height: 32px;
+    line-height: 30px;
+    color: #70757b;
+    border: 1px solid #ccc;
+    text-decoration: none
+}
+
+.pageItem.active .pageLink, .pageItem:hover .pageLink {
+    background-color: #f89336;
+    color: #fff;
+    border-color: #f89336
+}
+
+.pageItem.pageItem_dot:hover .pageLink {
+    background-color: #fff;
+    border-color: #ccc;
+    color: #70757b
+}
+
+.pageGo {
+    display: inline-block;
+    margin-left: 25px
+}
+
+.pageGo .input {
+    width: 50px;
+    position: relative;
+    text-align: center;
+    vertical-align: top
+}
+
+.pageGoBtn {
+    font-size: 12px;
+    border: 1px solid #ccc;
+    height: 32px;
+    line-height: 32px;
+    display: inline-block;
+    padding: 0 6px;
+    margin-left: -1px;
+    color: #70757b;
+    text-decoration: none
+}
+
+.pageGoBtn:hover {
+    position: relative;
+    z-index: 1;
+    background-color: #c0985d;
+    color: #fff;
+    border-color: #c0985d
+}

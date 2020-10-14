@@ -1,0 +1,96 @@
+
+
+.form_label {
+    font-size: 12px;
+    display: inline-block;
+    margin: 0 .8em;
+    color: #333;
+    height: 32px;
+    line-height: 32px;
+    vertical-align: top
+}
+
+.form_group {
+    white-space: nowrap
+}
+
+.form_group, .form_group > * {
+    vertical-align: top
+}
+
+.form_item input, .form_item select, .form_item textarea {
+    width: 100%
+}
+
+.form_item.default .input {
+    width: 300px
+}
+
+.form_item.default .select {
+    min-width: 150px
+}
+
+.form_item_seach {
+    position: relative
+}
+
+.yss {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: url(../images/public/seachIcon.png) 50% no-repeat;
+    top: 0;
+    right: 0
+}
+
+.form_item_seach input {
+    padding-right: 32px
+}
+
+.selectDate {
+    padding-right: 34px;
+    background: #fff url(../images/public/selectDate.png) no-repeat 100%
+}
+
+
+
+.loading, .noData {
+    text-align: center;
+    font-size: 14px;
+    color: #70757b;
+    padding: 38px 0
+}
+
+.loading:before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(../images/public/loading.gif) no-repeat;
+    -webkit-background-size: 20px 20px;
+    -o-background-size: 20px 20px;
+    background-size: 20px 20px;
+    margin-right: 3px;
+    vertical-align: middle
+}
+
+
+
+body {
+    font-family:PingFang SC, Segoe UI, Lucida Grande, Helvetica, Arial, Microsoft YaHei, FreeSans, Arimo, Droid Sans, wenquanyi micro hei, Hiragino Sans GB, Hiragino Sans GB W3, sans-serif
+    overflow-x: hidden;
+    color: #333
+}
+
+/**
+     position: absolute;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    padding-bottom:0px;
+ */
+
+
+
+
+

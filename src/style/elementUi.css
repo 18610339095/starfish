@@ -1,0 +1,35 @@
+.el-collapse-item__header, .el-collapse {
+    border: none !important;
+    background: none !important;
+    height: auto !important;
+    line-height: 1 !important;
+  
+}
+.fz .el-collapse-item__header{
+    font-size: 24px !important;
+}
+
+.el-collapse-item__wrap {
+    /*overflow: initial !important;*/
+    background: none !important;
+    border: none !important;
+}
+
+.el-collapse-item__arrow {
+    line-height: 1 !important;
+}
+/* .el-collapse-item__header {
+    height: 48px !important;
+    line-height: 29px !important;
+    color: #303133;
+    cursor: pointer;
+    border-bottom: 1px solid #ebeef5;
+    font-size: 24px;
+    font-weight: 500;
+    -webkit-transition: border-bottom-color .3s;
+    transition: border-bottom-color .3s;
+    outline: 0;
+    } */
+/*.bonus_m .el-collapse-item__arrow{*/
+    /*margin-top: -14px;*/
+/*}*/
