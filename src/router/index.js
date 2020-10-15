@@ -99,6 +99,17 @@ var router = new Router({
       }//register
     },
     {
+      path: '/invite', //邀请好友
+      name: 'Invite',
+      meta:{
+        position: 'relative',
+        requiresAuth: false
+      },
+      component: function(resolve){
+        require(['../views/invite/index.vue'],resolve);
+      }//register
+    },
+    {
       path: '/registerMailValidate', //注册成功之后的页面
       name: 'registerMailValidate',
       meta:{

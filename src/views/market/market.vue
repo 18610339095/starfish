@@ -140,7 +140,6 @@
                 </div>
               </div>
               <div class="transaction_m">
-
                 <div class="buySell_m">
                   <div class="buySell">
                     <div class="top none">

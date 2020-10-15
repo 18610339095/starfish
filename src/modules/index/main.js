@@ -11,7 +11,7 @@ import clipboard from 'clipboard';
 import CryptoJS from 'crypto-js';
 import { setLanguage } from 'lib/setLanguage';
 import {SOCKET_URL} from 'lib/Constant'
-
+import less from 'less'
 /**
  * 加密
  */
@@ -37,6 +37,7 @@ window.decrypt = function(str,key,iv) {
 
 Vue.prototype.clipboard = clipboard;
 Vue.use(VueQriously)
+Vue.use(less)
 
 //语言本地化
 Vue.use(VueI18n);
