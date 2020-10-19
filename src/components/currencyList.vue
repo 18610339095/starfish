@@ -10,10 +10,10 @@
                 </li>
             </ul>
         </div>
-        <ul class="yYEList" style="margin-top: 30px">
-            <li>{{ $t("balance") }} <span style="font-family: Helvetica;">{{Number(balance[type] || '0').toFixed(9).slice(0,-1)}} </span></li>
-            <li>{{ $t("in order") }}<span style="font-family: Helvetica;">{{Number(freezeBalance[type] || '0').toFixed(8)}} </span></li>
-            <li>{{ $t("total") }}<span style="font-family: Helvetica;">{{Number(totalAmout || '0').toFixed(8)}}</span></li>
+        <ul class="yYEList">
+            <li>{{ $t("balance") }}： <span style="font-family: Helvetica;">{{Number(balance[type] || '0').toFixed(9).slice(0,-1)}} </span></li>
+            <li>{{ $t("in order") }}：<span style="font-family: Helvetica;">{{Number(freezeBalance[type] || '0').toFixed(8)}} </span></li>
+            <li>{{ $t("total") }}：<span style="font-family: Helvetica;">{{Number(totalAmout || '0').toFixed(8)}}</span></li>
         </ul>
     </div>
 
@@ -206,13 +206,16 @@
         line-height: 1;
         padding-left: 34px;
         margin-bottom: 26px;
+        display: flex;
+        margin-top: 10px;
+        justify-content: flex-end;
     }
     .yCZCon .yYEList li:not(:last-child) {
         margin-bottom: 12px;
     }
     .yCZCon .yYEList span {
-        float: right;
-        margin-right: 166px;
+        color: #4168F3;
+        margin-right: 12px;
     }
     .ySelect {
         position: relative;

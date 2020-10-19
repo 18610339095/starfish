@@ -1,7 +1,7 @@
 <script src="../../../static/js/imvSDK.js"></script>
 <template>
     <div class="yResetYzContentWarp" style="min-height:640px">
-        <div class="yResetYzContent" v-if="(userInfo.google_ath_status!='0' ) ||(userInfo.google_ath_status=='0' ) ">
+        <div class="yResetYzContent"  v-if="(userInfo.google_ath_status!='0' ) ||(userInfo.google_ath_status=='0' ) ">
                 <div class="yResetTitleSecond">
                     <span >{{userInfo.google_ath_status=='1'? $t('google authentication'):$t('sms authentication code')}}</span>
                 </div>
@@ -53,7 +53,7 @@
         <div class="yResetSecondContent" v-if="userInfo.google_ath_status=='1' &&userInfo.phone!='' ">
             <div class="tabWrap">
                 <div class="tabNav">
-                    <a  @click="changeTab('google')" class="tabNav_item" :class="{'active':currentTab=='google'}">{{ $t("google authentication") }}</a>
+                    <!-- <a   @click="changeTab('google')" class="tabNav_item" :class="{'active':currentTab=='google'}">{{ $t("google authentication") }}</a> -->
                     <a  @click="changeTab('phone')" class="tabNav_item"  :class="{'active':currentTab=='phone'}">{{$t('phone code')}}</a>
                 </div>
                 <div class="tabCon">
@@ -121,7 +121,7 @@ import  {USER_INFO} from  'store/types';
                 isClick:true,
                 timer:'',
                 label_:'',
-                currentTab:'google',
+                currentTab:'phone',
                 code:'',
                 marketUrl:'',
                 errorShow:{
@@ -387,6 +387,9 @@ import  {USER_INFO} from  'store/types';
 .tabCon_item .form_item .codeWaiting {
     background: #ededed;
     cursor: default
+}
+.tabNav {
+  border: none;
 }
 
 .tabNav_item.active{

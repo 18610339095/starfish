@@ -78,6 +78,7 @@
                 noData:false,
                 precision:8,
                 klineTime:'15',
+                oldMdata: [], //上一次的分钟线数据
 
             };
         },
@@ -235,7 +236,14 @@
                         }
 
                         fn.KlineDataM = function (mes) {//实时数据更新
+                        const lastData = that.kline_mesData[that.kline_mesData.length - 1] || ''
+                        console.log(that.kline_mesData[that.kline_mesData.length - 1] ,'k');
+                     
                             let newDataO = eval("(" + mes + ")");
+                               console.log(newDataO[0][0] * 1000 - lastData.time ,'时间差');
+                            console.log(newDataO, '实时数据');
+                            //当前最新时间比上一次的时间小，去掉
+                            if(newDataO[0][0] * 1000 - lastData.time < 60000) return;
                             let newKlineO = {
                                 time: newDataO[0][0] * 1000,
                                 open: newDataO[0][1],
@@ -350,6 +358,7 @@
                 //precision 指标位数
                 // var precision = 8;
                 that.marketLocal();
+                
                 that.chart.chart().createStudy("Moving Average", false, false, [7], null, {
                     "Plot.color": "#FFA900","precision":8
                 });
@@ -469,7 +478,7 @@
                 this.klineTime = times || '15'
 
                 kineSet = {//保存用户默认状态
-                    "lineType":this.lineType,
+                    "lineType":this.lineType == '1'?'2':this.lineType,
                     "lineOffset":this.lineOffset,
                     "klineTabm_name" :this.klineTabm_name,
                     "klineTabh_name" : this.klineTabh_name,

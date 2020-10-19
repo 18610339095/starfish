@@ -190,7 +190,7 @@
                 var windowUrl = window.URL || window.webkitURL; //处理浏览器兼容性
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", url);
-                xhr.withCredentials = true;
+                // xhr.withCredentials = true;
                 // xhr.setRequestHeader('withCredentials', true)
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
                 xhr.responseType = "blob";
@@ -304,8 +304,8 @@
             picCheckRefeach: function() { //获取验证图片
             this.hasrefresh = true;
                 let that = this;
-                that.imgFun(URL + '/back.html', '.bgimg', function(params) {
-                    that.imgFun(URL + '/front.html', '.reflectimg', function(res) {
+                that.imgFun('/api/back.html', '.bgimg', function(params) {
+                    that.imgFun('/api/front.html', '.reflectimg', function(res) {
                         // that.picFrontY = {top: res + 'px'};
                         that.picFrontY = res;
                           that.hasrefresh = false;

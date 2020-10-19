@@ -227,17 +227,21 @@
                                   </dl>
                                   <dl class="elem  clearfix">
                                     <dt class="dt"></dt>
-                                    <dd class="dd list">
+                                    <dd class="dd list buyXJ">
                                       <a href="javascript:;"
                                          @click="positionChange('0.25','1')"
+                                          :class="buyButXJ1 == '0.25'? 'on': ''"
                                          class="inside">25%</a>
                                       <a href="javascript:;"
+                                      :class="buyButXJ1 == '0.5'? 'on': ''"
                                          @click="positionChange('0.5','1')"
                                          class="inside">50%</a>
                                       <a href="javascript:;"
+                                      :class="buyButXJ1 == '0.75'? 'on': ''"
                                          @click="positionChange('0.75','1')"
                                          class="inside">75%</a>
                                       <a href="javascript:;"
+                                      :class="buyButXJ1 == '1'? 'on': ''"
                                          @click="positionChange('1','1')"
                                          class="inside">100%</a>
                                     </dd>
@@ -324,18 +328,21 @@
                                   </dl>
                                   <dl class="elem  clearfix">
                                     <dt class="dt"></dt>
-
-                                    <dd class="dd list">
+                                    <dd class="dd list sellXJ">
                                       <a href="javascript:;"
+                                       :class="buyButXJ2 == '0.25'? 'on': ''"
                                          @click="positionChange('0.25','2')"
                                          class="inside cur">25%</a>
                                       <a href="javascript:;"
+                                      :class="buyButXJ2 == '0.5'? 'on': ''"
                                          @click="positionChange('0.5','2')"
                                          class="inside">50%</a>
                                       <a href="javascript:;"
+                                      :class="buyButXJ2 == '0.75'? 'on': ''"
                                          @click="positionChange('0.75','2')"
                                          class="inside">75%</a>
                                       <a href="javascript:;"
+                                      :class="buyButXJ2 == '1'? 'on': ''"
                                          @click="positionChange('1','2')"
                                          class="inside">100%</a>
                                     </dd>
@@ -408,17 +415,21 @@
                                   </dl>
                                   <dl class="elem  clearfix">
                                     <dt class="dt"></dt>
-                                    <dd class="dd list">
+                                    <dd class="dd list buySJ1">
                                       <a href="javascript:;"
+                                        :class="buyBut1 == '0.25'? 'on': ''"
                                          @click="positionChange('0.25','1','s')"
                                          class="inside">25%</a>
                                       <a href="javascript:;"
+                                       :class="buyBut1 == '0.5'? 'on': ''"
                                          @click="positionChange('0.5','1','s')"
                                          class="inside">50%</a>
                                       <a href="javascript:;"
+                                       :class="buyBut1 == '0.75'? 'on': ''"
                                          @click="positionChange('0.75','1','s')"
                                          class="inside">75%</a>
                                       <a href="javascript:;"
+                                       :class="buyBut1 == '1'? 'on': ''"
                                          @click="positionChange('1','1','s')"
                                          class="inside">100%</a>
                                     </dd>
@@ -478,17 +489,21 @@
                                   <dl class="elem  clearfix">
                                     <dt class="dt"></dt>
 
-                                    <dd class="dd list">
+                                    <dd class="dd sellSJ list">
                                       <a href="javascript:;"
+                                        :class="buyBut2 == '0.25'? 'on': ''"
                                          @click="positionChange('0.25','2','s')"
                                          class="inside cur">25%</a>
                                       <a href="javascript:;"
+                                        :class="buyBut2 == '0.5'? 'on': ''"
                                          @click="positionChange('0.5','2','s')"
                                          class="inside">50%</a>
                                       <a href="javascript:;"
+                                        :class="buyBut2 == '0.75'? 'on': ''"
                                          @click="positionChange('0.75','2','s')"
                                          class="inside">75%</a>
                                       <a href="javascript:;"
+                                        :class="buyBut2 == '1'? 'on': ''"
                                          @click="positionChange('1','2','s')"
                                          class="inside">100%</a>
                                     </dd>
@@ -772,6 +787,10 @@ export default {
       pageSize: 100,
       show: false,
       marketLi: [],
+      buyButXJ1:'', // 限价按钮1
+      buyButXJ2:'',
+      buyBut1: '',
+      buyBut2: '',
       a: "",
       b: '',
       marketAll: [], //整体数据
@@ -940,6 +959,12 @@ export default {
 
   },
   methods: {
+    clearButStatus() {
+      this.buyButXJ1 ='', // 限价按钮1
+      this.buyButXJ2 ='',
+      this.buyBut1='',
+      this.buyBut2= ''
+    },
     convertNum: function (num) {
       if (!num) { return num }
       num = num.toString()
@@ -1329,6 +1354,7 @@ export default {
       let min_count_in = min_price_in + min_num_in;
       let res = new RegExp("^\\d+(?:\\.\\d{0," + min_num_in + "})?");
       if (num == "1") {
+        
         //买入
         let price;
         if (this.priceVue_b == "0" || !this.priceVue_b) {
@@ -1337,6 +1363,7 @@ export default {
           price = this.priceVue_b;
         }
         if (argus == 2) {
+          this.buyButXJ1 = val
           let a = this.math_multiply(this.account[this.marketA[0]] / price, val) || 0;
           if (min_num_in == "0") {
             this.amountVue_b = Math.floor(a).toString();
@@ -1351,6 +1378,7 @@ export default {
             min_count_in
           );
         } else {
+                     this.buyBut1 = val
           let a = this.math_multiply(this.account[this.marketA[0]], val) || 0;
 
           this.totalS_b = Number(a).toFixed(
@@ -1359,9 +1387,10 @@ export default {
         }
 
       } else if (num == "2") {
-
         let b = this.account[this.marketA[1]] * val || 0;
         if (argus == 2) {
+                   this.buyButXJ2 = val
+
           if (min_num_in == "0") {
             this.amountVue_s = Math.floor(b).toString();
           } else {
@@ -1373,6 +1402,8 @@ export default {
 
           this.total_s = Number(this.priceVue_s * this.amountVue_s || 0).toFixed(min_count_in);
         } else {
+                      this.buyBut2 = val
+
           this.amountVueS_s = Number(b || 0).toFixed(min_count_in);
         }
       }
@@ -1396,6 +1427,7 @@ export default {
     },
     Amount: function (e, b, s) {
       //数量
+      this.clearButStatus();
       let argus = arguments.length;
 
       let type = b;
@@ -1455,6 +1487,7 @@ export default {
       //金额
       //第三个参数为市价总额
       let argus = arguments.length;
+       this.clearButStatus();
 
       let type = b;
       let min_price = this.marketCoin.min_deal_price || 0;
@@ -2073,6 +2106,10 @@ export default {
   -webkit-transition: all 0.5s;
 }
 
+.leftCon .dataList .all .detailList .yangDetail {
+  height: 100%;
+  overflow-y: scroll;
+}
 .leftCon .dataList .all .detailList.tradesStyle_bg {
   height: 598px;
   opacity: 1;

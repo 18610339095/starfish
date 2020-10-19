@@ -8,8 +8,8 @@
                         <li class=""><a @click="goNext('propertyRecharge')" :class="{'cur':propertySelected=='propertyRecharge'}">{{ $t("deposit") }}</a></li>
                         <li class=""><a @click="goNext('propertyAdvance')" :class="{'cur':propertySelected=='propertyAdvance'}">{{ $t("withdraw") }}</a></li>
                         <li class=""><a @click="goNext('propertyRechargeList')" :class="{'cur':propertySelected=='propertyRechargeList'}">{{ $t("history") }}</a></li>
-                        <li class=""><a @click="goNext('propertyBonusList')" :class="{'cur':propertySelected=='propertyBonusList'}">{{$t("Bonus records")}}</a></li>
-                        <li class=""><a @click="goNext('propertyRewardList')" :class="{'cur':propertySelected=='propertyRewardList'}">{{$t("The TEX record")}}</a></li>
+                        <!-- <li class=""><a @click="goNext('propertyBonusList')" :class="{'cur':propertySelected=='propertyBonusList'}">{{$t("Bonus records")}}</a></li>
+                        <li class=""><a @click="goNext('propertyRewardList')" :class="{'cur':propertySelected=='propertyRewardList'}">{{$t("The TEX record")}}</a></li> -->
                         <!-- <h3   v-show="userCenterInfo.cooperation_status=='1'" class="title">{{$t("Management")}}</h3>
                         <li v-show="userCenterInfo.cooperation_status=='1'" class=""><a @click="goNext('RecordOfmoney')" :class="{'cur':propertySelected=='RecordOfmoney'}">{{$t("Coin Records")}}</a></li>
                         <li v-show="userCenterInfo.cooperation_status=='1'" class=""><a @click="goNext('RecordOfincome')" :class="{'cur':propertySelected=='RecordOfincome'}">{{$t("Income Records")}}</a></li> -->

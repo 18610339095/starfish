@@ -182,6 +182,7 @@
             <p class="  ">{{$t("no records")}}</p>
           </div>
           <tr v-for="item in dealList"
+          @click="getmesage(item.m_id,item.type)"
               :class="item.status==3&&a==0?'hiddenfirst':''">
             <td style="font-family: Helvetica;"
                 class="space1">{{(formatDate(item.update_time).slice(5).slice(0,11))}}</td>
@@ -204,10 +205,9 @@
                          v-model="activeName"
                          style="border-bottom:none;margin-top:0px;text-align:right width: 960px;margin-left: -960px;">
 
-              <div @click="getmesage(item.m_id,item.type)">
+              <div >
 
-                <el-collapse-item style="text-align:right;"
-                                  :title="$t('details')">
+                <el-collapse-item style="text-align:right;" >
 
                   <table class="table tc"
                          style="border-top:none;margin-top:10px;background: rgb(247,247,247);"

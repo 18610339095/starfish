@@ -1,5 +1,5 @@
 
-define(function(){
+define(function(){ 
     return {
         "In the preparation":"活动暂未开始",
         "My 24h Order History":"我的24小时历史委托",

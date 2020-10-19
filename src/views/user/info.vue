@@ -94,7 +94,8 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="two">
+                        
+                        <div class="two" >
                             <ul class="two_left" >
                                 <li class="f12"><i style="margin-right:5px; position: relative;top: 17px;"><img src="../../images/user/2.png" alt="" style="width:35px"> </i>{{ $t("identity authentication") }}</li>
                                 <li class="f11"  v-show="info.id_status=='1'"><i style=" position: relative; top: 2px;"><img src="../../images/user/err.png" alt="" width:18px></i> <span style=" margin-left: 5px;">{{ $t("identity verification  is awaiting approval") }}</span></li>
@@ -172,7 +173,8 @@
                                 </li> -->
                             </ul>
                         </div>
-                         <div class="two" style="border: 0">
+                        <!-- 谷歌验证 -->
+                         <div class="two none" style="border: 0">
                          <ul class="two_left">
                              <li class="f12"> <i style="margin-right:5px; position: relative; top: 17px;"><img src="../../images/user/3.png" alt="" style="width:35px" ></i>{{ $t("google authenticator") }}</li>
                             <li class="f11"  v-show="info.google_ath_status=='1'"><i  style=" position: relative; top: 2px;"><img src="../../images/user/success.png" alt="" width:18px></i> <span style=" margin-left: 5px;">{{$t('The user has bound the Google validator')}} </span></li>

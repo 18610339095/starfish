@@ -1913,6 +1913,32 @@ margin-left: 8px;
     margin-right: 22px
 }
 
+.middleCon .buySell .content .left .elem .dd.list.buyXJ .inside.on {
+  background: #F2F8EF;
+  border: 1px solid rgba(66, 189, 14, 0.5);
+  color: #42BD0E;
+  border-radius: 2px;
+}
+.middleCon .buySell .content .left .elem .dd.buySJ1 .inside.on {
+  background: #F2F8EF;
+  border: 1px solid rgba(66, 189, 14, 0.5);
+  color: #42BD0E;
+  border-radius: 2px;
+}
+
+.middleCon .buySell .content .right .elem .dd.sellXJ .inside.on {
+  background: #FDEFEF;
+  color: #F14F4F;
+  border: 1px solid rgba(241, 79, 79, 0.5);
+  border-radius: 2px;
+}
+.middleCon .buySell .content .right .elem .dd.sellSJ .inside.on {
+  background: #FDEFEF;
+  color: #F14F4F;
+  border: 1px solid rgba(241, 79, 79, 0.5);
+  border-radius: 2px;
+}
+
 .myDataList tbody,
 .topData .number1,
 .topData .number2,

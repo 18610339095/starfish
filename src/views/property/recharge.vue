@@ -8,57 +8,32 @@
 
                 <!--内容区 str-->
                 <div class="yCZCon">
-                    <bbList routeName="recharge" @addclass="addclass" @bType="bType"> </bbList>
-
-                    <div class="ybgGray" v-show="type && recharge_status !='2'">
-                        <dl class="yCZDl">
-                            <dd>{{ $t("deposit warining", [type]) }}</dd>
-                            <dd style="margin-top: 10px;"> {{$t('The recharge address is valid for 24 hours. After expiration, please click again to get the recharge address')}}</dd>
-                        </dl>
-                        <div>
-                            <h4 class="yCZTitle">{{type}} {{ $t("charge address") }}</h4>
-                            <p class="yDZ" id="success_form_input" readonly="readonly" v-model="ABCadd">{{ABCadd}}</p>
-                            <div class="tr yCZBtn" >
-                                <div v-show="hasCode" style="margin-right: 190px;display: inline-block;">
-                                    <qriously :value="ABCadd" :size="140" />
-                                </div>
-                                <el-col :span="12"
-                                        style=" width: 146px;
-                                        height: 40px;
-                                        line-height: 40px;
-                                        margin-left: 48px;
-                                        background:#4168f3;
-                                        border-radius:4px;cursor: pointer;"    
-                                        >
-                                    <el-dropdown trigger="click" placement="bottom" style="width:140px">  
-                                        <span class="el-dropdown-link" style="color:#ffffff;    display: block;">
-                                            <!-- <img style="margin-right:6px" src='../../images/assetmanagement/btnbg1.png'> -->
-                                            {{ $t("show qr code") }}<i class="el-icon-arrow-down el-icon--right"></i>
-                                        </span>
-                                        <el-dropdown-menu class="removeHover" slot="dropdown" placement="bottom">
-                                            <el-dropdown-item> <qriously :value="ABCadd" :size="140" /></el-dropdown-item>
-                                        
-                                        </el-dropdown-menu>
-                                    </el-dropdown>
-                                </el-col>
-                                 <!-- <a href="javascript:;" @click="codeTab" class="btn btn_orange btn_line  orgin">
-                                    <img src='../../images/assetmanagement/btnbg1.png'><span>{{ $t("show qr code") }}</span>
-                                </a> -->
-
-
-                                <a href="javascript:;" class="btn btn_orange btn_line  blue"  ref="copy" data-clipboard-action="copy" data-clipboard-target="#success_form_input" @click="copyLink">
-                                    <!-- <img src='../../images/assetmanagement/btnbg2.png'>  -->
-                                    <span>{{ $t("copy address") }}</span>
-                                </a>
-
-
-                            </div>
-                        </div>
+                  <div class="yCZCon-lmain">
+                     <h3 class="title-h3">币种</h3>
+                    <bbList class="yCZCon-bblist" routeName="recharge" @addclass="addclass" @bType="bType"> </bbList>
+                    <dl class="yCZDl ybgGray">
+                        <dd>{{ $t("deposit warining", [type]) }}</dd>
+                        <dd style="margin-top: 10px;"> {{$t('The recharge address is valid for 24 hours. After expiration, please click again to get the recharge address')}}</dd>
+                    </dl>
+                  </div>
+                  <div class="yCZCon-rmain">
+                    <h3 class="title-h3">充值地址 <span style="color: #f14f4f;" v-if="!recharge_status">（{{$t('please select coin/token')}}）</span></h3>
+                    <div v-show="recharge_status && recharge_status !='2'" class="yCZCon-rmain-bot">
+                      <h4 class="yCZTitle">{{type}} {{ $t("charge address") }}</h4>
+                      <div class="code-img"> <qriously :value="ABCadd" :size="110" /></div>
+                      <div class="code-address">
+                        <span id="success_form_input" readonly="readonly" v-model="ABCadd">{{ABCadd}}</span> <a href="javascript:;" class=" clone-but"  ref="copy" data-clipboard-action="copy" data-clipboard-target="#success_form_input" @click="copyLink">
+                          <span style="color:#4168F3;font-size:14px">{{ $t("copy address") }}</span>
+                      </a></div>
                     </div>
                     <div class="ybgGray" id="ybgGray" v-show="recharge_status =='2'">
-                        <p>{{$t('Wallet Maintenance, Deposit  Suspended')}}</p>
+                      <p>{{$t('Wallet Maintenance, Deposit  Suspended')}}</p>
                     </div>
+                  </div>
+                  
+
                 </div>
+               
                 <!--内容区 end-->
             </div>
         </div>
@@ -216,40 +191,50 @@
 
     .rightCon .tableWrap {
         background-color: #fff;
-        padding: 0 10px
+        /* padding: 0 10px */
     }
     .tableWrap{
         min-height: 605px;
     }
     .tableCen {
-        margin-left: 50px;
-        width: 530px;
+        margin-left: 20px;
         padding-top: 30px;
-        margin: 0 auto;
     }
     .removeHover :hover{
         background: #ffffff;
             cursor: default;
     }
     .yCZCon {
-        margin-top: 30px
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .yCZCon .yCZCon-lmain {
+      width: 502px;
+    }
+     .yCZCon .code-img {
+        width: 125px;
+        height: 125px;
+        padding: 5px;
+        margin: 0 auto 30px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.12);
+     }
+
+    .yCZCon .yCZCon-bblist {
+      margin-top: 10px;
     }
 
-    .yYEList {
-        font-size: 12px;
-        color: #666;
-        line-height: 1;
-        padding-left: 34px;
-        margin-bottom: 26px
+    .yCZCon .yCZCon-rmain {
+      flex: 1;
+      margin-left: 98px;
     }
-
-    .yYEList li:not(:last-child) {
-        margin-bottom: 12px
-    }
-
-    .yYEList span {
-        float: right;
-        margin-right: 166px
+    .yCZCon .title-h3 {
+      font-size: 16px;
+      font-family: PingFang SC;
+      font-weight: bold;
+      line-height: 22px;
+      color: #333333;
     }
 
     .yCZCon .ybgGray {
@@ -271,12 +256,16 @@
     .yCZCon .yCZDl dd {
         line-height: 1.6
     }
+    .yCZCon-rmain-bot {
+      text-align: center;
+      margin: 40px auto 0;
+    }
 
     .yCZCon .yCZTitle {
         font-size: 14px;
         color: #333;
         line-height: 1;
-        margin-bottom: 10px
+        margin-bottom: 18px
     }
 
     .yCZCon .yDZ {

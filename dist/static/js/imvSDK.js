@@ -253,7 +253,7 @@ function imvSDK(option) {
                 len = dv.getUint16(offset)
                 offset += 2;
                 var data = decodeBufferString(dv, len, offset);
-
+                console.log('16-8', data)
                 fn.KlineDataM(data)
             }
 

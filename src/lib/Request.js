@@ -15,7 +15,8 @@ import hex_md5 from 'js-md5';
 
 // axios 配置
 axios.defaults.timeout = 30000;//请求超时为30秒
-var env_dev_string=URL+BASE_URL; //
+// var env_dev_string=URL+BASE_URL; //
+var env_dev_string=`/api${BASE_URL}`; //
 var baseUrl =env_dev_string;
 let that = this;
 var  hasApp=false;
@@ -80,6 +81,7 @@ axios.interceptors.request.use(
                     n_iv = md5.substring(16,32);
                     let encode_token = encrypt(JSON.stringify(config.data),n_key,n_iv);
                     config.data = encode_token;
+                    console.log(JSON.stringify(config.data), 'encode');
 
             }else{
                 let request_data_str = JSON.stringify(config.data);

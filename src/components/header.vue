@@ -2,7 +2,7 @@
     <div :class="isHome?'homeHeader':''" class="topArea" id="topArea" >
         <!-- logo start -->
         <h1 class="siteLogo" id="siteLogo" >
-            <a href="/" class="logo"><img src="../images/public/logo.png" width="78px" alt=""></a>
+            <a href="/" class="logo"><img src="../images/public/logo-new.png" width="165px" alt=""></a>
         </h1>
         <!-- logo end -->
         <!-- 顶部菜单 start -->
@@ -12,7 +12,7 @@
                 <!--<li class=""><a href="#/sell" class="">出金交易</a></li>-->
                 <li class="head_lis" ><a :href="'/index.html#/market/'+ETHCoin" class="">{{ $t("exchange") }}</a></li>
                 <!-- <li class=""><a href="#/Special/special" >TEX</a></li> -->
-                <li class=""><a href="javascript:;"  @click="goTex()">TEX</a></li>
+                <!-- <li class=""><a href="javascript:;"  @click="goTex()">TEX</a></li> -->
                 <li  v-show="isLogin" class="none"><a href="#/Invitation" class="">{{$t("Invite Rebate")}}</a></li>
                 <li class="head_lis" ><a href="javascript:;"  @click="gonext(1)" target="_Blank" class="">{{ $t("announcement") }}</a></li>
                 <li class="head_lis" ><a href="javascript:;" @click="gonextnew(2)"  target="_Blank" class="">{{ $t("help") }}</a></li>
@@ -131,7 +131,7 @@
             this.getMarketListFn();
             this.getlang()
         },
-        methods:{
+        methods:{ 
              gonext: function (val) {
                 let that = this;
                  var newWin = window.open('about:blank');
@@ -339,7 +339,7 @@
         left: 30px;
         width: 127px;
         height: 60px;
-        margin-top: 13px;
+        margin-top: 18px;
         margin-left: 10px;
         /* background: url(../images/public/logo.png) no-repeat 50%; */
         background-size: 96px 36px;
@@ -471,7 +471,7 @@
         left: 30px;
         width: 127px;
         height: 50px;
-        margin-top: 13px;
+        margin-top: 18px;
         margin-left: 10px;
         /* background: url(../images/public/logo.png) no-repeat 50%; */
         background-size: 96px 36px;
@@ -482,7 +482,7 @@
 
     .topMenu {
         position: relative;
-        margin-left: 180px;
+        margin-left: 260px;
         padding-top: 22px;
         padding-bottom: 22px;
         height: 60px;

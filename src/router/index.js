@@ -107,7 +107,18 @@ var router = new Router({
       },
       component: function(resolve){
         require(['../views/invite/index.vue'],resolve);
-      }//register
+      }
+    },
+    {
+      path: '/partner', //合伙人
+      name: 'Partner',
+      meta:{
+        position: 'relative',
+        requiresAuth: false
+      },
+      component: function(resolve){
+        require(['../views/partner/index.vue'],resolve);
+      }
     },
     {
       path: '/registerMailValidate', //注册成功之后的页面
