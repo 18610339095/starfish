@@ -14,70 +14,62 @@
            <h2 class="cent-tit">VIP至尊会员</h2>
             <div class="cent-m">
               <p>可在海星平台申请成为VIP至尊会员，选择抵押1000枚STS即可生效，享受抵押期间交易费手续费30%减免优惠，并享受推荐会员首日（24小时）成交手续费100%的奖励。</p>
-              <div class="cent-but" @click="applyFn">立即申请</div>
+              <div class="cent-but" :class="infoData.ApplyZZStatus != 1 ? 'disab-but':''" @click="applyFn">立即申请</div>
             </div>
         </div>
       </div>
       <div class="main-status">
         <div class="status-l">
           <p class="tab">我的身份</p>
-          <p class="name">联合创始人</p>
+          <p class="name">{{UserLevel[infoData.UserLevel || 0]}}</p>
         </div>
         <div class="status-r">
           <ul class="lists">
             <li>
               <p class="tab">STS总持仓</p>
-              <p class="numbs">8900.00</p>
+              <p class="numbs">{{infoData.STS || 0}}</p>
             </li>
             <li>
               <p class="tab">STS当前锁仓</p>
-              <p class="numbs">8900.00</p>
-              <div class="but">解锁</div>
+              <p class="numbs">{{infoData.LockSTS || 0}}</p>
+              <div v-if="infoData.UnlockSTSStatus != 1" @click="unlockFn" class="but">解锁</div>
             </li>
             <li>
               <p class="tab">STS累计解锁</p>
-              <p class="numbs">8900.00</p>
+              <p class="numbs">{{infoData.TotalUnlockSTS || 0}}</p>
             </li>
             <li>
               <p class="tab">STS累计奖励</p>
-              <p class="numbs">8900.00</p>
+              <p class="numbs">{{infoData.TotalSTS || 0}}</p>
             </li>
             <li>
               <p class="tab">USDT累计奖励</p>
-              <p class="numbs">8900.00</p>
+              <p class="numbs">{{infoData.TotalUSDT || 0}}</p>
             </li>
           </ul>
         </div>
       </div>
       <div>
-        <p class="main-tips">* STS持仓不足50000，系统将在14小时24分后进行身份降级，请及时补仓。</p>
+        <p class="main-tips" v-show="infoData.DegradeTip">* {{infoData.DegradeTip}}</p>
       </div>
       <div class="main-list">
         <ul class="list-tab">
           <li ><span>奖励记录</span></li>
         </ul>
-        <ul class="list-m">
+        <ul v-if="priesList.length > 0" class="list-m">
           <li class="list-tit">
-            <span>奖励记录</span>
+            <span>奖励时间</span>
             <span>奖励类型</span>
             <span>奖励金额</span>
           </li>
-          <li>
-            <span>17865624423</span>
-            <span>2020-08-19</span>
-            <span>0.003 BTC</span>
+          <li v-for="(list,index) in priesList" :key="index">
+            <span>{{list.PrizeDate || ''}}</span>
+            <span>{{list.CoinType || ''}}</span>
+            <span>{{list.PrizeAmount || ''}}</span>
           </li>
-          <li>
-            <span>17865624423</span>
-            <span>2020-08-19</span>
-            <span>0.003 BTC</span>
-          </li>
-          <li>
-            <span>17865624423</span>
-            <span>2020-08-19</span>
-            <span>0.003 BTC</span>
-          </li>
+
         </ul>
+        <p v-else class="none-list">暂无奖励记录</p>
       </div>
        <div class="main-list main-list2">
         <ul class="list-tab">
@@ -115,13 +107,20 @@
 
 <script>
 import Qrcode from 'vue-qrcode';
-
+import  {
+    partnerMyInfo,
+    partnerLevel,
+    partnerMyPrizes,
+    partnerUnlock,
+    partnerList} from  'lib/Service';
 export default {
   data () {
     return {
       typeId: 0,
-      copyBtn: null,
       maskSta: false,
+      UserLevel: ['普通会员', 'vip至尊会员', '超级合伙人', '创世合伙人', '联合创始人'], // 身份
+      infoData:{},
+      priesList: [], //奖励列表
       mask: {
         status: 'success', 
         title: '成功',
@@ -137,11 +136,33 @@ export default {
   computed: {},
 
   mounted () {
-    this.copyBtn = new this.clipboard(this.$refs.copy);
+    this.getInfoData();
   },
 
   methods: {
+    getInfoData() { // 获取初始数据
+      partnerMyInfo().then( res => {
+       this.infoData = res.data;
+       this.mask.centTit = this.infoData.ApplyZZTip;
+      });
+      partnerMyPrizes().then( prizeRes => {
+        console.log(prizeRes,'prizeRes');
+        this.priesList = prizeRes.data.list || [];
+      })
+    },
+    unlockFn() { // 解锁
+      partnerUnlock().then(res => {
+        console.log(res, 'unlock');
+      })
+    },
     applyFn() {
+      partnerLevel().then(res => {
+        console.log(
+          res ,'partnerLevel'
+        );
+      }, err => {
+        console.log(err,'err');
+      }).
       this.maskSta = true;
     },
     cloneMask() {
@@ -281,6 +302,14 @@ export default {
         color: #fff;
         margin: 0 auto;
       }
+      .cent-but.disab-but {
+          color: #C0C4CC;
+           pointer-events: none;
+          cursor: not-allowed;
+          background-image: none;
+          opacity: 0.6;
+          border-color: #EBEEF5;
+      }
       .cent-l,
       .cent-r {
         width: 518px;       
@@ -356,6 +385,11 @@ export default {
       background: #ffffff;
       box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.05);
       border-radius: 10px;
+      .none-list {
+        margin-top: 40px;
+        text-align: center;
+        color: #ccc;
+      }
       .list-tab {
         height: 60px;
         width: 100%;

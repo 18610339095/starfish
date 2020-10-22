@@ -433,7 +433,8 @@
     background: #ffffff;margin-top: 36px;
 }
 .marketTab{
-    height: 380px;margin-bottom: 8px;overflow: hidden;
+    /* height: 380px; */
+    margin-bottom: 8px;
     padding: 8px 10px;
     border-radius: 4px;background: #ffffff;
 }
@@ -521,6 +522,7 @@
 .leftCon {
     float: left;
     width: 300px;
+    min-width: 300px;
 
 }
 #leftCon{
@@ -570,6 +572,10 @@
     margin: 0 0px
 }
 
+.leftCon .dataList .yinDetail {
+  width: 100%;
+}
+
 .leftCon .dataList .title li {
     font-size: 12px;
     color: #999;
@@ -586,15 +592,21 @@
 .leftCon .dataList .title li:nth-of-type(3) {
     text-align: right
 }
+.new-deal {
+  height: 398px;
+}
 
 .leftCon .dataList .all {
     height: auto;
     padding-bottom: 4px;
 }
 .leftCon .dataList .all .detailList{
-    height: 300px;
+    height: 352px;
     margin: 3px 0 0;
-    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
 }
 .dealList{height: 273px;margin: 3px 0 0;overflow-y:auto;}
 .leftCon .dataList .all .detail li {
@@ -713,14 +725,15 @@
 }
 
 .middleCon {
-    width: 584px;
-margin-left: 8px;
+    width: calc(100% - 310px);
+    margin-left: 8px;
     float: left;
-    min-height: 670px
+    min-height: 670px;
+    min-width: 800px;
 }
 
 .middleCon .chartsWrap {
-    height: 380px;
+    /* height: 380px; */
     background-color: #fff
 }
 
@@ -801,6 +814,14 @@ margin-left: 8px;
     height: 20px;
     cursor: pointer;
     background: url(../images/market/index/i-12.png) no-repeat 50%
+}
+.old-entrust {
+  margin: 8px auto;
+  padding: 15px 11px;
+  width:100%;
+  min-width: 1408px;
+  background:#ffffff;
+  border-radius: 4px;
 }
 
 .myData_m{
@@ -914,7 +935,7 @@ margin-left: 8px;
 
 .middleCon .buySell .content .left, .middleCon .buySell .content .right {
     overflow: hidden;
-    /*width: 100%;*/
+    width: 48%;
     min-height: 248px;
     padding: 0 15px
 }
@@ -963,7 +984,7 @@ margin-left: 8px;
 }
 
 .middleCon .buySell .content .left .elem .dd, .middleCon .buySell .content .right .elem .dd {
-    width: 200px;
+    width: 80%;
     font-size: 12px;margin-left: 55px;
     height: 25px;line-height: 25px;
     position: relative
@@ -1209,8 +1230,10 @@ margin-left: 8px;
 
 #rightCon {
     width: 300px;background: #ffffff;border-radius: 4px;
+    height: 820px;
     padding: 0 10px;
     position: relative;
+    min-width: 300px;
 
     float: left
 }

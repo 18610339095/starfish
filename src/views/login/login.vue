@@ -108,6 +108,7 @@
         SET_OFF_SET,
         GET_OFF_SET,
         URL,
+        IMG_URL,
         PhoneReg,
         zoneCode
     } from 'lib/Constant'
@@ -190,7 +191,7 @@
                 var windowUrl = window.URL || window.webkitURL; //处理浏览器兼容性
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", url);
-                // xhr.withCredentials = true;
+                xhr.withCredentials = true;
                 // xhr.setRequestHeader('withCredentials', true)
                 xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
                 xhr.responseType = "blob";
@@ -304,8 +305,8 @@
             picCheckRefeach: function() { //获取验证图片
             this.hasrefresh = true;
                 let that = this;
-                that.imgFun('/api/back.html', '.bgimg', function(params) {
-                    that.imgFun('/api/front.html', '.reflectimg', function(res) {
+                that.imgFun(`${IMG_URL}/back.html`, '.bgimg', function(params) {
+                    that.imgFun( `${IMG_URL}/front.html`, '.reflectimg', function(res) {
                         // that.picFrontY = {top: res + 'px'};
                         that.picFrontY = res;
                           that.hasrefresh = false;

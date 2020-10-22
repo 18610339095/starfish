@@ -3,10 +3,10 @@
             <div class="wrap bt">
                 <div class="footerL">
                     <ul class="copyright">
-                        <li class="logo" style="width:117px;height:52px">
+                        <li class="logo">
                             <!-- <img src="../images/public/logo.png" width="117px" height="52px" alt=""> -->
                         </li>
-                        <p class="" style="margin-top:20px;opacity: 0.4;color: #ffffff;">&copy;2017-2018 3ex.com All Rights Reserved</p>
+                        <p class="" style="margin-top:20px;opacity: 0.4;color: #ffffff;">&copy;2019 starfish3.com All Rights Reserved</p>
                     </ul>
                     <ul class="footerNav">
                         <li  class="top_1"><span  class="top_1" style="font-size:16px;color:white;opacity:1">{{ $t("Services") }}</span></li>
@@ -149,9 +149,11 @@ export default {
 .bga{
      background: url("../images/public/flay.png") ;
 }
-.logo{
-    background: url("../images/public/logo.png") ;
-    background-size:117px 52px
+.logo{ 
+  width: 165px;
+  height: 26px;
+    background: url("../images/public/logo-new.png") no-repeat;
+    background-size:cover;
 }
 ul{
     /* width: 120px; */
@@ -159,7 +161,13 @@ ul{
      margin-top: 35px;
      /* margin-left: 147px; */
 }
-    .footer{position:absolute;bottom:0;width:100%;height:250px;background-color: #ffc0cb;}
+    .footer{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      min-width: 1408px;
+      height:250px;
+      background-color: #ffc0cb;}
   .footer, .links {
     background-color: #212121;
     clear: both;

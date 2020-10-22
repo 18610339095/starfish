@@ -93,13 +93,11 @@
         <div class="wrap">
 
           <!-- 数据主体区 start -->
-          <div class="clearfix">
-            <div class="leftCon rightCon">
-
+          <div class="clearfix midden-cent">
+            <div class="leftCon rightCon" style="height:410px">
               <marketList routerName="market"
                           :marketN="marketA[0]"></marketList>
-
-              <div class="dealData ">
+              <div class="dealData new-deal">
                 <div class="top ">
                   <h3 class="title ">{{ $t("trade-history") }}</h3>
                   <!-- <div class="r ">
@@ -122,10 +120,9 @@
                 </div>
               </div>
             </div>
+            <div class="right-main">
             <div class="middleCon">
-
               <div class="chartsWrap mb">
-
                 <div class="chartDom">
                   <div class="chartInside">
                     <div id="container"
@@ -576,7 +573,7 @@
                        style="position: relative"
                        :class="[{tradesStyle_bg:trades_tabs == '2'},{detailList_n:trades_tabs == '1'}]">
                     <ul class="detail yangDetail"
-                        style="width: 100%;position: absolute;bottom: 0">
+                        style="width: 100%;bottom: 0">
                       <li v-show="show_second"
                           style="color: #cccccc; font-size: 14px; text-align: center">{{$t("no records")}}</li>
                       <li class=""
@@ -593,7 +590,7 @@
                       </li>
                       <!--<li class="">-->
                       <!--<p class="red">0.00285</p>-->
-                      <!--<p class="">5.00</p>-->
+                        <!--<p class="">5.00</p>-->
                       <!--<p class="">0.01589</p>-->
                       <!--<p class="bg" style="width:20%;"></p>-->
                       <!--</li>-->
@@ -630,7 +627,7 @@
               </div>
 
             </div>
-
+            </div>
           </div>
           <div class="marketDeal">
             <div class="myData_m ">
@@ -672,7 +669,7 @@
       <div class="mask"
            v-show="isopen"></div>
     </div>
-    <div style="margin: 8px auto;padding: 15px 11px;width:1200px;background:#ffffff;border-radius: 4px;">
+    <div class="old-entrust" >
       <div style="padding-left:10px">
         <h2 class="title"
             style="color: #333;
@@ -2107,11 +2104,9 @@ export default {
 }
 
 .leftCon .dataList .all .detailList .yangDetail {
-  height: 100%;
-  overflow-y: scroll;
 }
 .leftCon .dataList .all .detailList.tradesStyle_bg {
-  height: 598px;
+  height: 712px;
   opacity: 1;
 }
 
@@ -2121,8 +2116,16 @@ export default {
 }
 
 .wrap {
-  width: 1200px;
+  width: 100%;
+  min-width: 1276px;
   margin: 0 auto;
+}
+.midden-cent {
+  display: flex;
+  justify-content: space-between;
+}
+.right-main {
+  flex: 1 0 auto;
 }
 
 .myData_m .alldeal {

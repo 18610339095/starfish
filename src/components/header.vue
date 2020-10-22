@@ -16,6 +16,9 @@
                 <li  v-show="isLogin" class="none"><a href="#/Invitation" class="">{{$t("Invite Rebate")}}</a></li>
                 <li class="head_lis" ><a href="javascript:;"  @click="gonext(1)" target="_Blank" class="">{{ $t("announcement") }}</a></li>
                 <li class="head_lis" ><a href="javascript:;" @click="gonextnew(2)"  target="_Blank" class="">{{ $t("help") }}</a></li>
+                <!-- 新增合伙人 邀请 -->
+                <li class="head_lis" ><a href="javascript:;" @click="goNext('Partner')"   class="">合伙人</a></li>
+                <li class="head_lis" ><a href="javascript:;" @click="goNext('Invite')"  class="">邀请好友</a></li>
 
                 <!-- <li v-for="(item,index) in headList" :key="index"><a href="javascript:;"
                                     @click="goback('novice',{'article_id':'','cate_id':'','parent_id':item.cate_id});"
@@ -451,6 +454,7 @@
     }
     .topArea {
         height: 60px;
+        min-width: 1408px;
         background-color: #fff;
         position: relative;
         background: #4168F3 ;

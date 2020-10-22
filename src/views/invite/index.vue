@@ -34,16 +34,16 @@
                ref="copy"
                data-clipboard-action="copy"
                data-clipboard-target="#copys"
-               @click="copyLink">q3xr407912</div>
+               @click="copyLink">{{listDatas1.InviteCode || ''}}</div>
         </div>
         <div class="cent-nums">
           <div class="num-m">
-            <p>邀请人数1</p>
-            <p class="num">20</p>
+            <p>邀请人数</p>
+            <p class="num">{{listDatas1.InviteCnt || 0}}</p>
           </div>
           <div class="num-m">
             <p>当前返佣比例：</p>
-            <p class="num">20%</p>
+            <p class="num">{{listDatas1.InviteRatio || 0}}</p>
           </div>
         </div>
       </div>
@@ -54,28 +54,33 @@
           <li @click="typeTab(1)"
               :class="typeId ==1 ? 'on':''"><span>返佣记录</span></li>
         </ul>
-        <ul class="list-m">
-          <li class="list-tit">
-            <span>被邀请人</span>
-            <span>返佣时间</span>
-            <span>返佣奖励</span>
-          </li>
-          <li>
-            <span>17865624423</span>
-            <span>2020-08-19</span>
-            <span>0.003 BTC</span>
-          </li>
-          <li>
-            <span>17865624423</span>
-            <span>2020-08-19</span>
-            <span>0.003 BTC</span>
-          </li>
-          <li>
-            <span>17865624423</span>
-            <span>2020-08-19</span>
-            <span>0.003 BTC</span>
-          </li>
-        </ul>
+        <div v-if="typeId == 0 && listDatas1.data">
+          <ul class="list-m">
+            <li class="list-tit">
+              <span>被邀请人</span>
+              <span>邀请时间</span>
+            </li>
+            <li  v-for="item in listDatas1.data.list">
+              <span>{{item.PhoneCode || ''}}</span>
+              <span>{{item.InviteDate || ''}}</span>
+            </li>
+          </ul>
+        </div>
+        <div v-if="typeId == 1 && listDatas2.length>0">
+          <ul class="list-m">
+            <li class="list-tit">
+              <span>被邀请人</span>
+              <span>返佣时间</span>
+              <span>返佣奖励</span>
+            </li>
+            <li v-for="list in listDatas2">
+              <span>{{list.PhoneCode || ''}}</span>
+              <span>{{list.PrizeDate || ''}}</span>
+              <span>{{list.PrizeAmount || 0}} {{list.CoinType || ''}}</span>
+            </li>
+          </ul>
+        </div>
+        
       </div>
     </div>
   </div>
@@ -83,12 +88,14 @@
 
 <script>
 import Qrcode from 'vue-qrcode';
-
+import  {myInviteList, myInvitePrizeList} from  'lib/Service';
 export default {
   data () {
     return {
       typeId: 0,
       copyBtn: null,
+      listDatas1:{},
+      listDatas2: [],
     };
   },
 
@@ -98,9 +105,21 @@ export default {
 
   mounted () {
     this.copyBtn = new this.clipboard(this.$refs.copy);
+    this.gitInfoList();
   },
 
   methods: {
+    gitInfoList() {
+      myInviteList().then(res => {
+        this.listDatas1 = res
+        console.log(res.data,'list');
+      }),
+      myInvitePrizeList().then(res => {
+         console.log(res.data,'list2');
+        this.listDatas2 = res.data.list || [];
+        
+      })
+    },
     typeTab (id) {
       this.typeId = id;
     },
@@ -213,12 +232,12 @@ export default {
           font-size: 16px;
           font-family: PingFang SC;
           font-weight: 500;
-          color: #8597af;
+          color: #999;
           .num {
             font-size: 18px;
             font-family: PingFang SC;
             font-weight: 500;
-            color: #172147;
+            color: #333;
             margin-top: 20px;
           }
         }

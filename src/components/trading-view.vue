@@ -42,7 +42,8 @@
             <!--</div>-->
         </div>
 
-        <div id="tradingview_container" style="width: 584px;height: 350px"></div>
+        <div id="tradingview_container" style="width: 100%;height: 460px">
+        </div>
     </div>
 </template>
 
@@ -59,7 +60,7 @@
             return {
                 chart: null,
                 feed: null,
-                red: "#AD5055",
+                red: "#f00",
                 green: "#5A9065",
                 from: '',
                 to: '',
@@ -181,9 +182,7 @@
                     // 根据symbolInfo，resolution，from，to等获取数据
                     that.from = from;
                     that.to = to;
-                    // console.log({ resolution });
-                    // console.log({ from},new Date(from*1000));
-                    // console.log({ to },new Date(to*1000));
+
                     if(that.lineType == 1){
                         that.lineType = 2;
                         that.imv.klineInfo(that.marketA[0], that.marketA[1], that.lineType, that.lineOffset,  that.times);
@@ -305,26 +304,36 @@
                 datafeed: datafeed,
                 interval: that.klineTime, //1分
                 timezone: "Asia/Shanghai",
+                autosize:false,
                 container_id: "tradingview_container",
                 library_path: "/static/custome_scripts/chartmain/", //静态文件路径
                 locale:"zh", //语言zh,en
-                disabled_features: [
-                    //"use_localstorage_for_settings",  //使用localstorage保存偏好数据
-                    "header_widget", // 顶部工具栏
+                enabled_features: [ // 开启功能
+                   "header_widget", // 顶部工具栏
+                   "dont_show_boolean_study_arguments",
+                   "left_toolbar",
+                   "side_toolbar_in_fullscreen_mode"
+               ],
+                disabled_features: [ // 关闭功能
+                    "header_screenshot",//截屏按钮
+                    "hide_left_toolbar_by_default",//当用户第一次打开图表时，隐藏左侧工具栏
+                    // "use_localstorage_for_settings",  //使用localstorage保存偏好数据
+                    "header_symbol_search", // 品种搜索
+                    "header_resolutions", // 功能区时间图
                     "pane_context_menu", // 图表右键菜单
                     "scales_context_menu", // 坐标轴右键菜单
                     "timeframes_toolbar", // 底部工具栏
                     "volume_force_overlay", // 把量叠加到主图上
                     "display_market_status", // 显示『盘中』
-                    "edit_buttons_in_legend", // 显示图列旁边编辑按钮
+                    // "edit_buttons_in_legend", // 显示图列旁边编辑按钮
                     "legend_context_menu", // 图列右键菜单
-                    "seconds_resolution"
+                    "seconds_resolution",
+                    
                 ],
 
                 studies_overrides: {
                     "volume.show ma": false,
                 },
-                enabled_features: ["dont_show_boolean_study_arguments"],
                 clientId: "https://www.3ex.com/",
                 userId: "public_user_id",
                 fullscreen: false,
@@ -502,23 +511,5 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-    h1,
-    h2 {
-        font-weight: normal;
-    }
-
-    ul {
-        list-style-type: none;
-        padding: 0;
-    }
-
-    li {
-        display: inline-block;
-        /*margin: 0 10px;*/
-    }
-
-    a {
-        color: #42b983;
-    }
+<style>
 </style>

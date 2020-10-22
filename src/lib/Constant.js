@@ -5,9 +5,10 @@
 
 
 exports.URL = "http://182.92.155.119:14527";//76开发环境
-// exports.URL = "http://192.168.1.17:14527";//17测试环境
+// exports.URL = "/api";// 本地环境 反向代理标识
 //  exports.URL="https://api.3ex.com";
-
+exports.IMG_URL = "http://182.92.155.119:14527" // 打包环境
+// exports.IMG_URL = "/api"  // 本地环境
 
  //imvSDK地址
 exports.SOCKET_URL = "ws://182.92.155.119:8600/ws";//76开发环境
@@ -15,7 +16,7 @@ exports.SOCKET_URL = "ws://182.92.155.119:8600/ws";//76开发环境
  // exports.SOCKET_URL ="ws://192.168.1.17:8600/ws";//17
  //  exports.SOCKET_URL = "wss://marketinfo.3ex.com/";//线上打包地址
 
-//测试环境用
+//测试环境用 
 exports.IV = 'ycdMOf!gxqA6IpuC'; //默认 解密原始常量
 exports.KEY = 'nn-#IcoTW:[k&5gg'; //默认 解密原始常量
 exports.SALT = "zK6mLT#:jWU>I/C~rM`[04?uS@iadkeB"; //解密固定常量

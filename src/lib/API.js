@@ -92,6 +92,13 @@ exports.USER_CENTER_PHONE_UN_BIND = "Ucenter@deBindPhone";//解绑手机
 exports.USER_CENTER_GOOGLE_AUTHEN = "Ucenter@bindGoogleAuthenticator";//绑定谷歌验证器
 exports.USER_CENTER_DE_BIND_GOOGLE = "Ucenter@deBindGoogleAuthenticator";
 exports.USER_CENTER_UPDATE_CONNECT = "Ucenter@setUserConnectAddress"; //修改联系方式
+exports.USER_CENTER_UPDATE_CONNECT = "Ucenter@setUserConnectAddress"; //修改联系方式
+exports.PARTER_INFO = "partner@myInfo"; //合伙人信息
+exports.PARTER_PRIZES = "partner@myPrizes"; //合伙人奖励信息
+exports.PARTER_LEVEL = "partner@applyZZLevel"; //申请至尊会员
+exports.PARTER_LEVEL_UNLOCK = "partner@unlockSTSAsset"; //至尊会员解锁
+exports.INVITE_LIST = "invite@myInviteList"; //邀请好友 邀请记录
+exports.INVITE_PRIZE_LIST = "invite@myInvitePrizeList"; //邀请好友 返佣记录
 
 
 exports.TRADE_LIST = "PublicInterface@tradeList"; //交易记录target

@@ -73,6 +73,9 @@ body {
 td{
     color:#999999
 }
+.wrapper {
+  min-width: 1408px;
+}
 .wrap {
     width: 1200px;
    

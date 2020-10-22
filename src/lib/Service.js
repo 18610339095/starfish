@@ -230,6 +230,25 @@ const getMiningAndBI  = function(data){ //首页挖矿记录
 const orderMarketRepeal  = function(data){ //撤单
     return commRequest(data,API.ORDER_MARKET_REPEAL);
 }
+// 邀请记录 合伙人
+const partnerMyInfo  = function(data = {}){
+  return commRequest(data,API.PARTER_INFO);
+}
+const partnerMyPrizes  = function(data = {}){ 
+  return commRequest(data,API.PARTER_PRIZES);
+}
+const partnerLevel  = function(data = {}){
+  return commRequest(data,API.PARTER_LEVEL);
+}
+const partnerUnlock  = function(data = {}){
+  return commRequest(data,API.PARTER_LEVEL_UNLOCK);
+}
+const myInviteList  = function(data = {}){
+  return commRequest(data,API.INVITE_LIST);
+}
+const myInvitePrizeList  = function(data = {}){
+  return commRequest(data,API.INVITE_PRIZE_LIST);
+}
  //结束
  /**
   * 用户中心接口
@@ -314,6 +333,12 @@ const orderMarketRepeal  = function(data){ //撤单
     }
  }
 export {
+    partnerMyInfo,
+    partnerMyPrizes,
+    partnerLevel,
+    partnerUnlock,
+    myInviteList,
+    myInvitePrizeList,
     getJwtSupportUrl,
     gettokenuserincomemainaccount,
     apiuseraccountdel,
